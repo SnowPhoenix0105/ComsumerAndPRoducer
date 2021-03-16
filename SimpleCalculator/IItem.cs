@@ -19,6 +19,16 @@ namespace SimpleCalculator
 
         public int Value { get => value; }
 
+        public static bool operator==(IntegerItem left, IItem right)
+        {
+            return left != null && left.Equals(right);
+        }
+
+        public static bool operator!=(IntegerItem left, IItem right)
+        {
+            return !(left == right);
+        }
+
         public override bool Equals(object obj)
         {
             var other = obj as IntegerItem;
@@ -43,6 +53,16 @@ namespace SimpleCalculator
         }
 
         public int Value { get => first.Value + second.Value; }
+
+        public static bool operator==(AddItem left, IItem right)
+        {
+            return left != null && left.Equals(right);
+        }
+
+        public static bool operator!=(AddItem left, IItem right)
+        {
+            return !(left == right);
+        }
 
         public override bool Equals(object obj)
         {
@@ -69,6 +89,16 @@ namespace SimpleCalculator
 
         public int Value { get => first.Value - second.Value; }
 
+        public static bool operator==(SubItem left, IItem right)
+        {
+            return left != null && left.Equals(right);
+        }
+
+        public static bool operator!=(SubItem left, IItem right)
+        {
+            return !(left == right);
+        }
+
         public override bool Equals(object obj)
         {
             var other = obj as SubItem;
@@ -93,6 +123,16 @@ namespace SimpleCalculator
         }
 
         public int Value { get => first.Value * second.Value; }
+
+        public static bool operator==(MulItem left, IItem right)
+        {
+            return left != null && left.Equals(right);
+        }
+
+        public static bool operator!=(MulItem left, IItem right)
+        {
+            return !(left == right);
+        }
 
         public override bool Equals(object obj)
         {
