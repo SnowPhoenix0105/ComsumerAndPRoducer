@@ -18,8 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore SimpleCalculator
-      run: dotnet restore SimpleCalculator.Test
+      run: dotnet restore
     - name: Build
       run: dotnet build --no-restore SimpleCalculator SimpleCalculator.Test
     - name: Test
