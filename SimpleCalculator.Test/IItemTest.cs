@@ -37,5 +37,35 @@ namespace SimpleCalculator.Test
             var item = new AddItem(new IntegerItem(val1), new IntegerItem(val2));
             Assert.AreEqual(val1 + val2, item.Value);
         }
+
+        [DataTestMethod]
+        [DataRow(0, 0)]
+        [DataRow(0, 1)]
+        [DataRow(1, 1)]
+        [DataRow(-1,1)]
+        [DataRow(-1,0)]
+        [DataRow(int.MaxValue, int.MaxValue)]
+        [DataRow(int.MinValue, int.MinValue)]
+        [DataRow(int.MaxValue, int.MinValue)]
+        public void TestSubItemEquals(int val1, int val2)
+        {
+            var item = new AddItem(new IntegerItem(val1), new IntegerItem(val2));
+            Assert.AreEqual(val1 - val2, item.Value);
+        }
+
+        [DataTestMethod]
+        [DataRow(0, 0)]
+        [DataRow(0, 1)]
+        [DataRow(1, 1)]
+        [DataRow(-1,1)]
+        [DataRow(-1,0)]
+        [DataRow(int.MaxValue, int.MaxValue)]
+        [DataRow(int.MinValue, int.MinValue)]
+        [DataRow(int.MaxValue, int.MinValue)]
+        public void TestMulItemEquals(int val1, int val2)
+        {
+            var item = new AddItem(new IntegerItem(val1), new IntegerItem(val2));
+            Assert.AreEqual(val1 * val2, item.Value);
+        }
     }
 }
