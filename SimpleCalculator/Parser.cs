@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SimpleCalculator
 {
-    class Parser
+    public class Parser
     {
         public static IItem Parse(string exp)
         {

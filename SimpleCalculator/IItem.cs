@@ -3,12 +3,12 @@ using System;
 
 namespace SimpleCalculator
 {
-    interface IItem
+    public interface IItem
     {
         int Value { get; }
     }
     
-    sealed class IntegerItem : IItem
+    public sealed class IntegerItem : IItem
     {
         private int value;
 
@@ -18,16 +18,6 @@ namespace SimpleCalculator
         }
 
         public int Value { get => value; }
-
-        public static bool operator==(IntegerItem left, IItem right)
-        {
-            return left != null && left.Equals(right);
-        }
-
-        public static bool operator!=(IntegerItem left, IItem right)
-        {
-            return !(left == right);
-        }
 
         public override bool Equals(object obj)
         {
@@ -41,7 +31,7 @@ namespace SimpleCalculator
         }
     }
 
-    sealed class AddItem : IItem
+    public sealed class AddItem : IItem
     {
         private IItem first;
         private IItem second;
@@ -54,20 +44,10 @@ namespace SimpleCalculator
 
         public int Value { get => first.Value + second.Value; }
 
-        public static bool operator==(AddItem left, IItem right)
-        {
-            return left != null && left.Equals(right);
-        }
-
-        public static bool operator!=(AddItem left, IItem right)
-        {
-            return !(left == right);
-        }
-
         public override bool Equals(object obj)
         {
             var other = obj as AddItem;
-            return other != null && this.first == other.first && this.second == other.second;
+            return other != null && this.first.Equals(other.first) && this.second.Equals(other.second);
         }
 
         public override int GetHashCode()
@@ -76,7 +56,7 @@ namespace SimpleCalculator
         }
     }
 
-    sealed class SubItem : IItem
+    public sealed class SubItem : IItem
     {
         private IItem first;
         private IItem second;
@@ -89,20 +69,10 @@ namespace SimpleCalculator
 
         public int Value { get => first.Value - second.Value; }
 
-        public static bool operator==(SubItem left, IItem right)
-        {
-            return left != null && left.Equals(right);
-        }
-
-        public static bool operator!=(SubItem left, IItem right)
-        {
-            return !(left == right);
-        }
-
         public override bool Equals(object obj)
         {
             var other = obj as SubItem;
-            return other != null && this.first == other.first && this.second == other.second;
+            return other != null && this.first.Equals(other.first) && this.second.Equals(other.second);
         }
 
         public override int GetHashCode()
@@ -111,7 +81,7 @@ namespace SimpleCalculator
         }
     }
 
-    sealed class MulItem : IItem
+    public sealed class MulItem : IItem
     {
         private IItem first;
         private IItem second;
@@ -124,20 +94,10 @@ namespace SimpleCalculator
 
         public int Value { get => first.Value * second.Value; }
 
-        public static bool operator==(MulItem left, IItem right)
-        {
-            return left != null && left.Equals(right);
-        }
-
-        public static bool operator!=(MulItem left, IItem right)
-        {
-            return !(left == right);
-        }
-
         public override bool Equals(object obj)
         {
             var other = obj as MulItem;
-            return other != null && this.first == other.first && this.second == other.second;
+            return other != null && this.first.Equals(other.first) && this.second.Equals(other.second);
         }
 
         public override int GetHashCode()

@@ -4,7 +4,7 @@ namespace SimpleCalculator
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             string str = Console.ReadLine();
             while (str != null && str.Length > 0)
