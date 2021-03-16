@@ -49,7 +49,7 @@ namespace SimpleCalculator.Test
         [DataRow(int.MaxValue, int.MinValue)]
         public void TestSubItemEquals(int val1, int val2)
         {
-            var item = new AddItem(new IntegerItem(val1), new IntegerItem(val2));
+            var item = new SubItem(new IntegerItem(val1), new IntegerItem(val2));
             Assert.AreEqual(val1 - val2, item.Value);
         }
 
@@ -64,7 +64,7 @@ namespace SimpleCalculator.Test
         [DataRow(int.MaxValue, int.MinValue)]
         public void TestMulItemEquals(int val1, int val2)
         {
-            var item = new AddItem(new IntegerItem(val1), new IntegerItem(val2));
+            var item = new MulItem(new IntegerItem(val1), new IntegerItem(val2));
             Assert.AreEqual(val1 * val2, item.Value);
         }
     }
