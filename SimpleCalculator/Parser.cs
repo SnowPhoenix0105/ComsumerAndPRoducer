@@ -8,6 +8,14 @@ namespace SimpleCalculator
     {
         public static IItem Parse(string exp)
         {
+            if (exp == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (exp.Trim().Length <= 0)
+            {
+                throw new ExpressionTooShortException();
+            }
             return new Parser(exp).Produce();
         }   
 
