@@ -48,6 +48,11 @@ namespace SimpleCalculator.Test
         public void TestIntegerParse()
         {
             Assert.AreEqual((IntegerItem) 123, Parser.Parse("123"));
+            Assert.AreEqual((IntegerItem) 123, Parser.Parse(" 123"));
+            Assert.AreEqual((IntegerItem) 123, Parser.Parse("1 23"));
+            Assert.AreEqual((IntegerItem) 123, Parser.Parse("12 3"));
+            Assert.AreEqual((IntegerItem) 123, Parser.Parse("  123"));
+            Assert.AreEqual((IntegerItem) 123, Parser.Parse("123  "));
             Assert.AreEqual((IntegerItem) 0, Parser.Parse("0"));
             Assert.AreEqual((IntegerItem) 1, Parser.Parse("1"));
             Assert.AreEqual((IntegerItem) int.MaxValue, Parser.Parse(int.MaxValue.ToString()));
